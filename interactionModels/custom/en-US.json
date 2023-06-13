@@ -1,0 +1,171 @@
+{
+  "interactionModel": {
+    "dialog": {
+      "intents": [
+        {
+          "slots": [
+            {
+              "name": "score",
+              "elicitationRequired": true,
+              "validations": [
+                {
+                  "type": "isGreaterThanOrEqualTo",
+                  "prompt": "Slot.Validation.47455505744.858510934010.43832308729",
+                  "value": "2"
+                },
+                {
+                  "type": "isLessThanOrEqualTo",
+                  "prompt": "Slot.Validation.47455505744.858510934010.1255841096555",
+                  "value": "501"
+                }
+              ],
+              "type": "AMAZON.NUMBER",
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.47455505744.858510934010"
+              }
+            },
+            {
+              "name": "darts",
+              "elicitationRequired": true,
+              "validations": [
+                {
+                  "values": [
+                    "1",
+                    "2",
+                    "3"
+                  ],
+                  "type": "isInSet",
+                  "prompt": "Slot.Validation.47455505744.1333161769864.71848779517"
+                }
+              ],
+              "type": "AMAZON.NUMBER",
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.47455505744.1333161769864"
+              }
+            }
+          ],
+          "name": "AdviceIntent",
+          "confirmationRequired": false,
+          "prompts": {}
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "languageModel": {
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "slots": [
+            {
+              "name": "score",
+              "type": "AMAZON.NUMBER",
+              "samples": [
+                "{score}"
+              ]
+            },
+            {
+              "name": "darts",
+              "type": "AMAZON.NUMBER",
+              "samples": [
+                "{darts}"
+              ]
+            }
+          ],
+          "name": "AdviceIntent",
+          "samples": [
+            "{score} and {darts} darts",
+            "{score} remaining and {darts} darts",
+            "{score} remaining and {darts}",
+            "{score} and {darts}",
+            "{score} with {darts} darts left",
+            "{score} remaining with {darts} left",
+            "{score} with {darts} left",
+            "{score} with {darts} darts",
+            "{score} with {darts}",
+            "{score} remaining with {darts} darts left",
+            "{score} remaining with {darts} darts",
+            "{score} remaining with {darts}",
+            "{score} left with {darts}",
+            "{score} left with {darts} darts",
+            "score of {score} with {darts} darts left"
+          ]
+        }
+      ],
+      "types": [],
+      "invocationName": "tongues tin",
+      "modelConfiguration": {
+        "fallbackIntentSensitivity": {
+          "level": "LOW"
+        }
+      }
+    },
+    "prompts": [
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Please provide a valid score."
+          }
+        ],
+        "id": "Slot.Validation.47455505744.858510934010.43832308729"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Please provide a valid score."
+          }
+        ],
+        "id": "Slot.Validation.47455505744.858510934010.1255841096555"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Do you have one, two, or three darts left?"
+          }
+        ],
+        "id": "Slot.Validation.47455505744.1333161769864.71848779517"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Please provide a score."
+          }
+        ],
+        "id": "Elicit.Slot.47455505744.858510934010"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Please provide the number of darts remaining."
+          }
+        ],
+        "id": "Elicit.Slot.47455505744.1333161769864"
+      }
+    ]
+  }
+}
